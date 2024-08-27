@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:code": "biome lint --no-errors-on-unmatched ./",
+    "fix:code": "biome lint --apply ./",
+    "lint:style": "biome format --no-errors-on-unmatched ./",
+    "fix:style": "biome format --write ./"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "workspaces": [
     "web"
-  ]
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3"
+  }
 }
