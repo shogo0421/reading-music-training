@@ -1,21 +1,25 @@
 {
-  "name": "reading-music-training",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:code": "biome lint --no-errors-on-unmatched ./",
-    "fix:code": "biome lint --apply ./",
-    "lint:style": "biome format --no-errors-on-unmatched ./",
-    "fix:style": "biome format --write ./"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "workspaces": [
-    "web"
-  ],
-  "devDependencies": {
-    "@biomejs/biome": "1.8.3"
-  }
+	"name": "reading-music-training",
+	"version": "1.0.0",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"check": "npm run lint:code && npm run lint:style && npm run check:type -w web",
+		"lint:code": "biome lint --no-errors-on-unmatched ./",
+		"fix:code": "biome lint --write ./",
+		"lint:style": "biome format --no-errors-on-unmatched ./",
+		"fix:style": "biome format --write ./",
+		"prepare": "husky"
+	},
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"workspaces": ["web"],
+	"lint-staged": {
+		"web/**/*": ["bash -c 'npm run check'"]
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"husky": "^9.1.5",
+		"lint-staged": "^15.2.9"
+	}
 }
