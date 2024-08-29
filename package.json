@@ -2,12 +2,10 @@
 	"name": "reading-music-training",
 	"version": "1.0.0",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"check": "npm run lint:code && npm run lint:style && npm run check:type -w web",
-		"lint:code": "biome lint --no-errors-on-unmatched ./",
-		"fix:code": "biome lint --write ./",
-		"lint:style": "biome format --no-errors-on-unmatched ./",
-		"fix:style": "biome format --write ./",
+		"check": "npm run check:lint && npm run check:format",
+		"check:lint": "biome lint --no-errors-on-unmatched ./",
+		"check:format": "biome format --no-errors-on-unmatched ./",
+		"fix:format": "biome format --write ./",
 		"prepare": "husky"
 	},
 	"author": "",
@@ -15,7 +13,7 @@
 	"description": "",
 	"workspaces": ["web"],
 	"lint-staged": {
-		"web/**/*": ["bash -c 'npm run check'"]
+		"web/**/*": ["bash -c 'npm run check -w web'"]
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",

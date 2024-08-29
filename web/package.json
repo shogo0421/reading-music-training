@@ -6,11 +6,11 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
-		"lint:code": "biome lint --no-errors-on-unmatched ./",
-		"fix:code": "biome lint --apply ./",
-		"lint:style": "biome format --no-errors-on-unmatched ./",
-		"fix:style": "biome format --write ./",
+		"check": "npm run check:lint && npm run check:format && npm run check:type",
 		"check:type": "tsc --noEmit",
+		"check:lint": "biome lint --no-errors-on-unmatched ./",
+		"check:format": "biome format --no-errors-on-unmatched ./",
+		"fix:format": "biome format --write ./",
 		"preview": "vite preview"
 	},
 	"dependencies": {
